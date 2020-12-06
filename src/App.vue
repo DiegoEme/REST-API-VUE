@@ -1,28 +1,33 @@
 <template>
   <div id="app">
-  <Api></Api>
-  <TeamCard v-bind:member="member"></TeamCard>
-  <PageFooter></PageFooter>
+    <Api></Api>
+    <div class="container mt-3">
+      <div class="row justify-content-between">
+        <div class="col " v-for="(member, index) of member" :key="index">
+          <TeamCard :member="member"></TeamCard>
+        </div>
+      </div>
+    </div>
+
+    <PageFooter></PageFooter>
   </div>
 </template>
 
 <script>
-
-import PageFooter from './components/PageFooter'
-import TeamCard from './components/TeamCard'
-import Api from './components/Api'
+import PageFooter from "./components/PageFooter";
+import TeamCard from "./components/TeamCard";
+import Api from "./components/Api";
 export default {
   name: "App",
   components: {
     PageFooter,
     TeamCard,
     Api,
-    
   },
-  
-   data() {
+
+  data() {
     return {
-       member: [
+      member: [
         {
           codigo: 1,
           nombre: "Diego Huertas",
